@@ -1,0 +1,22 @@
+.col-xs-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+@media(min-width: 768px){
+    @for $i from 1 through 10 {
+        .col-sm-#{$i} {
+            flex: 0 0 percentage($i/10);
+            max-width: percentage($i/10);
+        }
+    }
+}
+
+@media(min-width: 1024px){
+    @for $i from 1 through 12 {
+        .col-md-#{$i} {
+            flex: 0 0 percentage($i/12);
+            max-width: percentage($i/12);
+        }
+    }
+}
