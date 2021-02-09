@@ -19,18 +19,19 @@ body {
 .header {
     grid-column: span 14;
     display: grid;
-    grid-template-columns: 1fr repeat(12, minmax(auto, 70px)) 1fr;
+    grid-template-columns: auto 1fr auto;
+    gap: 0 30px;
     grid-auto-rows: auto;
     align-items: center;
     background-image: url('images/slider-bg.png');
 
     .line {
-        grid-column: 1/15;
+        grid-column: 1/4;
     }
 }
 
 .logo {
-    grid-column: 2/14;
+    grid-column: 2;
     display: flex;
     justify-content: space-between;
     padding: 30px 0;
@@ -53,7 +54,7 @@ body {
 
 .menu {
     padding: 30px 0;
-    grid-column: 2/14;
+    grid-column: 2;
     font-family: $proza-libre;
     font-size: 16px;
     display: flex;
@@ -571,12 +572,6 @@ body {
         .text{
             text-align: center;
         }
-    }
-    
-    .menu,
-    .logo{
-        padding-left: 30px;
-        padding-right: 30px;
     }
 }
 
