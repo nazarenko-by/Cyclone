@@ -10,21 +10,12 @@ body {
     color: $grey-text;
 }
 
-.site {
-    display: grid;
-    grid-template-columns: 1fr repeat(12, minmax(auto, 70px)) 1fr;
-    grid-auto-rows: auto;
-}
-
 .header {
-    grid-column: span 14;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns:auto  1fr  auto;
     gap: 0 30px;
-    grid-auto-rows: auto;
     align-items: center;
     background-image: url('images/slider-bg.png');
-
     .line {
         grid-column: 1/4;
     }
@@ -128,14 +119,11 @@ body {
 .slider{
     display: grid;
     grid-template-columns: minmax(auto, 70px) auto minmax(auto, 1fr) auto minmax(auto, 70px);
-    grid-template-rows: auto auto auto;
     grid-column-gap: 30px;
     background-image: url('images/slider-bg.png');
     background-size: cover;
-    grid-column: span 14;
     position: relative;
-    overflow-x:hidden;
-    overflow-y:hidden;
+    overflow:hidden;
 }
 
 .slider-item-number{
@@ -168,6 +156,15 @@ body {
 
 .text-line{
     text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-decoration-style: solid;
+    text-decoration-color: $grey-text;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 1px;
+}
+
+.yellow-text.text-line{
+    text-decoration-color: $yellow-text;
 }
 
 .italic{
@@ -176,14 +173,16 @@ body {
 
 .slider-number-prev{
     grid-column: 1;
-    transform: rotate(-90deg);
-    left: -80px;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    left: -100px;
 }
 
 .slider-number-next{
     grid-column: 5; 
-    transform: rotate(-90deg); 
-    right: -45px;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg); 
+    right: -60px;
 }
 
 .slider-number-prev,
@@ -283,7 +282,6 @@ body {
 }
 
 .article-slider{
-    grid-column: span 14;
     display: grid;
     grid-template-columns: auto minmax(auto, 1fr) auto;
     background-color: $site-bg;
@@ -438,6 +436,10 @@ body {
 .text{
     font-family: $proza-libre;
     font-size: 14px;
+    .text-line{
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0px;
+    }
 }
 
 .read-more{
@@ -508,7 +510,6 @@ body {
 }
 
 .sound-player{
-    grid-row: 2/3;
     display: grid;
     grid-template-columns: auto auto minmax(auto, 1fr) auto;
     background-color: $site-bg;
@@ -661,11 +662,11 @@ body {
         font-size: 250px;
     }
     .slider-number-prev{
-        left: -130px;
+        left: -160px;
     }
     
     .slider-number-next{
-        right: -70px;
+        right: -100px;
     }
 
     .event-name{
@@ -712,11 +713,11 @@ body {
     }
 
     .slider-number-prev{
-        left: -160px;
+        left: -190px;
     }
     
     .slider-number-next{
-        right: -90px;
+        right: -120px;
     }
 
     .event-name{
@@ -757,6 +758,11 @@ body {
         width: 100px;
         height: 100px;
     }
+
+    .text-line{
+        text-decoration-thickness: 3px;
+        text-underline-offset: 3px;
+    }
     
 }
 
@@ -781,11 +787,11 @@ body {
     }
 
     .slider-number-prev{
-        left: -190px;
+        left: -220px;
     }
     
     .slider-number-next{
-        right: -110px;
+        right: -140px;
     }
 
     .event-name{
@@ -794,5 +800,9 @@ body {
     
     .event-date{
         font-size: 16px;
+    }
+
+    .text-line{
+        text-underline-offset: 4px;
     }
 }
