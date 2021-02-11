@@ -497,6 +497,60 @@ body {
     font-size: 16px;
 }
 
+.player{
+    display: grid;
+    grid-template-rows: auto auto;
+    
+    &>img{
+        width: 100%;
+        grid-row: 1/2;
+    }
+}
+
+.sound-player{
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: auto auto minmax(auto, 1fr) auto;
+    background-color: $site-bg;
+    padding: 5px;
+}
+
+.sound-player-img{
+    grid-column: 1/2;
+    grid-row: 1/5;
+    border-radius: 50%;
+}
+
+.sound-number{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.sound-name{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.sound-date{
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+.sound-time-left{
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
+
+.sound-next{
+    grid-column:4/5;
+    grid-row: 1/2;
+}
+
+.sound-prev{
+    grid-column:4/5;
+    grid-row: 3/4;
+}
+
 @media(max-width:767px) {
     .menu {
         flex-direction: row-reverse;
@@ -553,6 +607,10 @@ body {
         }
     }
 
+    .player{
+        grid-column: 1/15;
+    }
+
 }
 
 
@@ -572,6 +630,10 @@ body {
         .text{
             text-align: center;
         }
+    }
+    .sound-player-img{
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -626,6 +688,10 @@ body {
     .main{
         grid-column: 1/8;
         padding: 100px 40px 100px 0;
+    }
+
+    .player{
+        grid-column: 8/15;
     }
 
 }
@@ -685,6 +751,11 @@ body {
             height: 20px;
             top: 25px;
         }
+    }
+
+    .sound-player-img{
+        width: 100px;
+        height: 100px;
     }
     
 }
