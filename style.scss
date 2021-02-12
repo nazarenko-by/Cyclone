@@ -8,6 +8,7 @@
 body {
     font-family: $cormorant-garamond;
     color: $grey-text;
+    background-color: $site-bg;
 }
 
 .header {
@@ -134,6 +135,7 @@ body {
     font-weight: bold;
 }
 .big-title{
+    grid-area: big-title;
     font-size: 30px;
     font-weight: bold;
     a{
@@ -284,7 +286,6 @@ body {
 .article-slider{
     display: grid;
     grid-template-columns: auto minmax(auto, 1fr) auto;
-    background-color: $site-bg;
 }
 
 .article-slider-prev,
@@ -363,13 +364,13 @@ body {
     }
 
     .title{
-        grid-column: 1/4;
+        grid-column: 1/5;
         grid-row: 2/3;
         padding: 15px 0;
     }
 
     .text{
-        grid-column: 1/4;
+        grid-column: 1/5;
         grid-row: 3/4;
     }
 
@@ -400,6 +401,7 @@ body {
 .comment-share-button{
     display: flex;
     gap: 15px;
+    grid-area: comment-share-button;
 }
 
 .comment,
@@ -415,6 +417,7 @@ body {
     font-style: italic;
     font-weight: 600;
     font-size: 20px;
+    grid-area: title;
 }
 
 .title-line{
@@ -435,6 +438,7 @@ body {
 .text{
     font-family: $proza-libre;
     font-size: 14px;
+    grid-area: text;
     .text-line{
         text-decoration-thickness: 1px;
         text-underline-offset: 0px;
@@ -520,7 +524,6 @@ body {
     grid-area: sound-player;
     display: grid;
     grid-template-columns: auto minmax(auto, 1fr) auto auto;
-    background-color: $site-bg;
     gap: 0 15px;
     padding: 5px;
 
@@ -591,6 +594,58 @@ body {
     }
 }
 
+.hot-topics{
+    display: grid;
+    grid-template-columns:auto  1fr  auto;
+    gap: 30px;
+    justify-items: center;
+    grid-template-areas: 
+    ". big-title ."
+    ". topics-list .";
+
+    .big-title{
+        margin-top: 30px;
+    }
+}
+
+.topics-row{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.topics-list{
+    display: grid;
+    gap: 30px 0;
+    grid-area: topics-list;
+}
+
+.topic{
+    display: grid;
+    gap:10px 0;
+    grid-template-areas: 
+    "img img img"
+    "tag . comment-share-button"
+    "title title title"
+    "text text text"
+    "topic-autor topic-autor ."
+    ;
+    &>img{
+        grid-area: img;
+        width: 100%;
+        object-fit: cover;
+
+    }
+
+    .comment-share-button{
+        justify-self: end;
+    }
+}
+
+.topic-autor{
+    grid-area: topic-autor;
+}
+
 
 @media(max-width:767px) {
     .menu {
@@ -645,6 +700,17 @@ body {
         .text{
             text-align: center;
         }
+    }
+
+    .topic{
+        .comment-share-button{
+            flex-direction: row;
+        }
+
+        .title{
+            text-align: center;
+        }
+
     }
 
 }
@@ -731,6 +797,11 @@ body {
         "main-article sound-player";
     }
 
+    .topics-list{
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
 }
 
 @media(min-width: 1024px) {
@@ -802,6 +873,10 @@ body {
 
     .sound-player{
         padding: 17px;
+    }
+    .topics-list{
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
     }
 }
 
