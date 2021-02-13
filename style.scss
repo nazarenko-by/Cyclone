@@ -110,8 +110,8 @@ body {
 .follow-us{
     justify-content: space-between;
     gap: 30px;
-
     button{
+        cursor: pointer;
         &:hover img{
             filter: invert(50%);
         }
@@ -551,8 +551,25 @@ body {
 .sound-player-img{
     grid-column: 1/2;
     grid-row: 1/5;
-    border-radius: 50%;
+    img {
+        border-radius: 50%;
+        width: 100%;    
+    }
     align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &:hover{
+        filter: drop-shadow(0 10px 10px rgb(212, 212, 212));
+    }
+}
+
+.play-pause-sound{
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    cursor: pointer;
 }
 
 .sound-number{
@@ -816,6 +833,16 @@ body {
         grid-row: 1/2;
     }
     form{
+        width: 100%;
+        grid-column: 2/3;
+        grid-row: 2/3;
+        padding: 6px;
+        margin: 20px 0;
+        background-color: white;
+        border-radius: 25px;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
         button{
             background-color: $most-read-article;
             height: 100%;
@@ -834,16 +861,6 @@ body {
                 color: $line-color;
             }
         }
-        width: 100%;
-        grid-column: 2/3;
-        grid-row: 2/3;
-        padding: 6px;
-        margin: 20px 0;
-        background-color: white;
-        border-radius: 25px;
-        height: 50px;
-        display: flex;
-        justify-content: space-between;
     }
 }
 
@@ -1068,10 +1085,11 @@ body {
 
     .subscribe{
         form{
+            margin: 20px 0 45px;
+            width: 570px;
             input{
                 width: 250px;
             }
-            width: 570px;
         }
     }
 
@@ -1167,6 +1185,14 @@ body {
     .load-more{
         margin: 50px 0 20px;
     }
+
+    .subscribe{
+       form{
+        margin: 20px 0 70px;
+        } 
+    }
+    
+
     .footer-menu{
         margin: 65px 0;
     }
@@ -1232,6 +1258,12 @@ body {
         grid-template-areas: 
         "article article article article"; 
     }
+
+    .subscribe{
+        form{
+         margin: 20px 0 100px;
+         } 
+     }
 
     .footer-menu{
         margin: 85px 0;
