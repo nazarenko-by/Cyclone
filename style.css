@@ -676,7 +676,7 @@ body {
   grid-template-columns: auto 1fr auto;
   grid-template-areas: ". big-title ." ". most-read-article ." ". line .";
   justify-items: center;
-  gap: 30px 5px;
+  gap: 30px;
 }
 .most-read .big-title .text-line {
   text-decoration-color: #fffc8f;
@@ -738,6 +738,47 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.subscribe {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: auto 1fr auto;
+  gap: 0 30px;
+}
+.subscribe .big-title {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.subscribe form {
+  width: 100%;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  padding: 6px;
+  margin: 20px 0;
+  background-color: white;
+  border-radius: 25px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.subscribe form button {
+  background-color: #f2eae6;
+  height: 100%;
+  padding: 0 18px;
+  border-radius: 25px;
+  font-family: "Proza Libre", sans-serif;
+}
+.subscribe form button:hover {
+  background-color: #f0d7cd;
+}
+.subscribe form input {
+  margin-left: 15px;
+  font-family: "Proza Libre", sans-serif;
+  width: 150px;
+}
+.subscribe form input::placeholder {
+  color: #cac5cb;
 }
 
 @media (max-width: 767px) {
@@ -884,6 +925,13 @@ body {
 
   .most-read-article {
     grid-template-areas: "article article" "article article";
+  }
+
+  .subscribe form {
+    width: 570px;
+  }
+  .subscribe form input {
+    width: 250px;
   }
 }
 @media (min-width: 1024px) {
