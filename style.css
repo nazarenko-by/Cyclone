@@ -576,6 +576,9 @@ body {
 .hot-topics .big-title {
   margin-top: 30px;
 }
+.hot-topics .line {
+  margin: 0 0 30px;
+}
 
 .topics-row {
   display: flex;
@@ -668,6 +671,75 @@ body {
   cursor: default;
 }
 
+.most-read {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: ". big-title ." ". most-read-article ." ". line .";
+  justify-items: center;
+  gap: 30px 5px;
+}
+.most-read .big-title .text-line {
+  text-decoration-color: #fffc8f;
+}
+.most-read .line {
+  margin: 0 0 30px;
+}
+
+.most-read-article {
+  grid-area: most-read-article;
+  display: grid;
+  gap: 30px;
+  grid-template-areas: "article" "article" "article" "article";
+}
+
+.article {
+  height: 270px;
+  width: 270px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.article .comment-share-button {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  gap: 10px;
+  transform: rotate(-90deg);
+}
+.article .comment-share-button button {
+  transform: rotate(90deg);
+}
+.article::after {
+  opacity: 0;
+  visibility: hidden;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #f2eae6;
+  border-radius: 50%;
+  position: absolute;
+  z-index: -1;
+}
+.article:hover {
+  background-color: #f2eae6;
+  border-radius: 50%;
+}
+.article:hover .comment-share-button, .article:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.article-data {
+  grid-area: article-data;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 @media (max-width: 767px) {
   .menu {
     flex-direction: row-reverse;
@@ -722,6 +794,10 @@ body {
   }
   .topic .title {
     text-align: center;
+  }
+
+  .article .comment-share-button {
+    flex-direction: row;
   }
 }
 @media (max-width: 1023px) {
@@ -805,6 +881,10 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
+
+  .most-read-article {
+    grid-template-areas: "article article" "article article";
+  }
 }
 @media (min-width: 1024px) {
   .slider-item-number {
@@ -875,6 +955,11 @@ body {
     padding: 17px;
   }
 
+  .hot-topics line,
+.most-read line {
+    margin: 20px 0 50px;
+  }
+
   .topics-list {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
@@ -882,6 +967,10 @@ body {
 
   .load-more {
     margin: 50px 0 20px;
+  }
+
+  .most-read-article {
+    grid-template-areas: "article article article article";
   }
 }
 @media (min-width: 1200px) {
@@ -930,6 +1019,11 @@ body {
   .sound-player {
     padding: 34px;
     gap: 0 33px;
+  }
+
+  .hot-topics line,
+.most-read line {
+    margin: 50px 0 70px;
   }
 
   .load-more {
