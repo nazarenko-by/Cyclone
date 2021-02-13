@@ -847,6 +847,47 @@ body {
     }
 }
 
+.footer{
+    background-color: $most-read-article;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0 30px;
+    grid-template-areas: 
+    ". footer-menu ."
+    ". line ."
+    ". copyright .";
+}
+
+.footer-menu{
+    grid-area: footer-menu;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    font-family: $proza-libre;
+    color: $light-grey-text;
+    .navigation a {
+        color: $light-grey-text;
+        &:hover{
+            color: $grey-text;
+        }
+    }
+    img,
+    .follow-us img{
+        filter: invert(50%);
+        &:hover{
+            filter: none;
+        }
+    }
+}
+
+.copyright{
+    grid-area: copyright;
+    margin: 30px 0;
+    color: $light-grey-text;
+    font-family: $proza-libre;
+    font-size: 12px;
+}
+
 
 @media(max-width:767px) {
     .menu {
@@ -855,13 +896,12 @@ body {
         .navigation {
             display: none;
         }
-    }
-
-    .search {
+        .search {
         flex-direction: row-reverse;
         gap: 10px;
+        }
     }
-    
+
     .slider-prev,
     .slider-next{
         width: 30px;
@@ -919,6 +959,12 @@ body {
         } 
     }
 
+    .footer{
+        .follow-us{
+            display: none;
+        }
+    }
+
 }
 
 
@@ -942,6 +988,12 @@ body {
     .sound-player-img{
         width: 50px;
         height: 50px;
+    }
+
+    .footer{
+        .navigation{
+            display: none;
+        }
     }
 }
 
@@ -1021,6 +1073,10 @@ body {
             }
             width: 570px;
         }
+    }
+
+    .footer-menu{
+        margin: 45px 0;
     }
 
 }
@@ -1111,10 +1167,8 @@ body {
     .load-more{
         margin: 50px 0 20px;
     }
-
-    .most-read-article{
-        grid-template-areas: 
-        "article article article article"; 
+    .footer-menu{
+        margin: 65px 0;
     }
 }
 
@@ -1172,6 +1226,15 @@ body {
 
     .load-more{
         margin: 70px 0 30px;
+    }
+
+    .most-read-article{
+        grid-template-areas: 
+        "article article article article"; 
+    }
+
+    .footer-menu{
+        margin: 85px 0;
     }
 
 }
