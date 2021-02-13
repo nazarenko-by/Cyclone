@@ -35,6 +35,7 @@ body {
 }
 
 .line {
+  grid-area: line;
   height: 1px;
   width: 100%;
   background-color: #cac5cb;
@@ -327,6 +328,14 @@ body {
   filter: invert(100%);
 }
 
+.arrow-prev-button {
+  grid-area: arrow-prev-button;
+}
+
+.arrow-next-button {
+  grid-area: arrow-next-button;
+}
+
 .article-slides {
   grid-column: 2/3;
   grid-row: 1/2;
@@ -562,7 +571,7 @@ body {
   grid-template-columns: auto 1fr auto;
   gap: 30px;
   justify-items: center;
-  grid-template-areas: ". big-title ." ". topics-list .";
+  grid-template-areas: ". big-title ." ". topics-list ." ". load-more ." ". more-topics-pages ." ". line .";
 }
 .hot-topics .big-title {
   margin-top: 30px;
@@ -596,6 +605,67 @@ body {
 
 .topic-autor {
   grid-area: topic-autor;
+  color: #918e8b;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.load-more {
+  grid-area: load-more;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  font-family: "Proza Libre", sans-serif;
+  font-size: 14px;
+  margin-top: 30px;
+}
+.load-more button {
+  cursor: pointer;
+}
+.load-more button:hover {
+  color: #918e8b;
+}
+
+.more-topics-pages {
+  width: 100%;
+  grid-area: more-topics-pages;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "arrow-prev-button topics-pages arrow-next-button";
+}
+.more-topics-pages .arrow-next-button {
+  transform: rotate(180deg);
+}
+
+.topics-pages {
+  grid-area: topics-pages;
+  display: flex;
+  gap: 20px;
+  font-family: "Proza Libre", sans-serif;
+  font-size: 14px;
+  color: #918e8b;
+  justify-self: center;
+}
+.topics-pages li:last-child {
+  color: #2a2928;
+}
+.topics-pages .title-line {
+  color: #2a2928;
+}
+.topics-pages .title-line::after {
+  height: 15px;
+  top: 5px;
+}
+.topics-pages li {
+  cursor: pointer;
+}
+.topics-pages li:hover {
+  color: #2a2928;
+}
+.topics-pages div {
+  cursor: default;
 }
 
 @media (max-width: 767px) {
@@ -809,6 +879,10 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
   }
+
+  .load-more {
+    margin: 50px 0 20px;
+  }
 }
 @media (min-width: 1200px) {
   .navigation {
@@ -856,6 +930,10 @@ body {
   .sound-player {
     padding: 34px;
     gap: 0 33px;
+  }
+
+  .load-more {
+    margin: 70px 0 30px;
   }
 }
 

@@ -39,6 +39,7 @@ body {
 }
 
 .line {
+    grid-area: line;
     height: 1px;
     width: 100%;
     background-color: $line-color;
@@ -346,6 +347,14 @@ body {
     }
 }
 
+.arrow-prev-button{
+    grid-area: arrow-prev-button;
+}
+
+.arrow-next-button{
+    grid-area: arrow-next-button;
+}
+
 .article-slides{
     grid-column: 2/3;
     grid-row: 1/2;
@@ -601,7 +610,10 @@ body {
     justify-items: center;
     grid-template-areas: 
     ". big-title ."
-    ". topics-list .";
+    ". topics-list ."
+    ". load-more ."
+    ". more-topics-pages ."
+    ". line .";
 
     .big-title{
         margin-top: 30px;
@@ -644,6 +656,69 @@ body {
 
 .topic-autor{
     grid-area: topic-autor;
+    color: $light-grey-text;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.load-more{
+    grid-area: load-more;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    font-family: $proza-libre;
+    font-size: 14px;
+    margin-top: 30px;
+    button{
+        cursor: pointer;
+        &:hover{
+            color: $light-grey-text;
+        }
+    }
+}
+
+.more-topics-pages{
+    width: 100%;
+    grid-area: more-topics-pages;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: 
+    "arrow-prev-button topics-pages arrow-next-button";
+    .arrow-next-button{
+        transform: rotate(180deg);
+    }
+}
+
+.topics-pages{
+    grid-area: topics-pages;
+    display: flex;
+    gap: 20px;
+    font-family: $proza-libre;
+    font-size: 14px;
+    color: $light-grey-text;
+    justify-self: center;
+    & li:last-child{
+        color: $grey-text;
+    }
+    .title-line{
+        color: $grey-text;
+        &::after{
+            height: 15px;
+            top:5px; 
+        }
+       
+    }
+    li{
+        cursor: pointer;
+        &:hover{
+            color: $grey-text;
+        }
+    }
+    div{
+        cursor: default;
+    }
 }
 
 
@@ -878,6 +953,10 @@ body {
         grid-template-columns: 1fr 1fr 1fr;
         gap: 30px;
     }
+
+    .load-more{
+        margin: 50px 0 20px;
+    }
 }
 
 @media(min-width: 1200px) {
@@ -923,6 +1002,10 @@ body {
     .sound-player{
         padding: 34px;
         gap: 0 33px;
+    }
+
+    .load-more{
+        margin: 70px 0 30px;
     }
 
 }
